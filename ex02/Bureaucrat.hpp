@@ -5,9 +5,9 @@
 # include <iostream>
 # include <exception>
 # include <ostream>
-# include "Form.hpp"
+# include "AForm.hpp"
 
-class Form;
+class AForm;
 
 class Bureaucrat
 {
@@ -23,7 +23,8 @@ public:
 	int	getGrade() const;
 	void	increase_clearence();
 	void	decrease_clearence();
-	void	signForm(Form &form);
+	void	signForm(AForm &form);
+	void	setStatus(bool val);
 	class GradeTooHighException : public std::exception
 	{
 		virtual const char * what() const throw()

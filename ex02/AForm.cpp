@@ -1,6 +1,6 @@
 #include "AForm.hpp"
 
-Form::Form(std::string const name, int const sign, int const exec):
+AForm::AForm(std::string const name, int const sign, int const exec):
 _name(name), _min_to_sign(sign), _min_to_exec(exec)
 {
 	if (sign < 1)
@@ -10,13 +10,13 @@ _name(name), _min_to_sign(sign), _min_to_exec(exec)
 	this->_signed = false;
 }
 
-Form::Form(Form const &other) : _name(other._name), 
+AForm::AForm(AForm const &other) : _name(other._name), 
 _min_to_sign(other._min_to_sign), _min_to_exec(other._min_to_exec)
 {
 	this->_signed = false;	
 }
 
-Form &Form::operator=(Form const &other)
+AForm &AForm::operator=(AForm const &other)
 {
 	if (this == &other)
 		return *this;
@@ -24,31 +24,36 @@ Form &Form::operator=(Form const &other)
 	return *this;
 }
 
-Form::~Form(void)
+AForm::~AForm(void)
 {
 }
 
-std::string const &Form::getName() const
+std::string const &AForm::getName() const
 {
 	return (this->_name);
 }
 
-bool	Form::getStatus() const
+bool	AForm::getStatus() const
 {
 	return (_signed);
 }
 
-int	Form::getSign() const
+int	AForm::getSign() const
 {
 	return (_min_to_sign);
 }
 
-int	Form::getExec() const
+int	AForm::getExec() const
 {
 	return (_min_to_exec);
 }
 
-void	Form::beSigned(Bureaucrat const &other)
+void	AForm::setStatus(bool val)
+{
+	this->_signed = val;
+}
+
+void	AForm::beSigned(Bureaucrat const &other)
 {
 	if (other.getGrade() > this->_min_to_sign)
 		throw GradeTooLowException();
@@ -57,14 +62,13 @@ void	Form::beSigned(Bureaucrat const &other)
 	this->_signed = true;
 }
 
-void	Form::execFile(Bureaucrat const &other)
+void	AForm::execFile(Bureaucrat const &other) const
 {
-	if (other.getExec() > this->_min_to_sign)
+	if (other.getGrade() > this->_min_to_sign)
 		throw GradeTooLowException();
-	this->_signed = true;
 }
 
-std::ostream	&operator<<(std::ostream &stream, Form const &form)
+std::ostream	&operator<<(std::ostream &stream, AForm const &form)
 {
 	stream << "form : ";
 	stream << form.getName();

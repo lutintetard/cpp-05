@@ -15,18 +15,19 @@ private:
 	bool	_signed;
 	int const	_min_to_sign;
 	int const	_min_to_exec;
-	bool	execute(Bureaucrat const &executor) const = 0;
 public:
-	Form(std::string const name, int const sign, int const exec);
-	Form(Form const &other);
-	Form &operator=(Form const &other);
-	~Form(void);
+	AForm(std::string const name, int const sign, int const exec);
+	AForm(AForm const &other);
+	AForm &operator=(AForm const &other);
+	~AForm(void);
 	std::string const &getName() const;
 	bool	getStatus() const;
 	int	getSign() const;
 	int	getExec() const;
+	void	setStatus(bool val);
 	void	beSigned(Bureaucrat const &other);
-	void	execFile(Bureaucrat const &other);
+	void	execFile(Bureaucrat const &other) const;
+	virtual void	execute(Bureaucrat const &executor) const = 0;
 	class GradeTooHighException : public std::exception
 	{
 	public:
@@ -53,6 +54,6 @@ public:
 	};
 };
 
-std::ostream &operator<<(std::ostream &stream, Form const &form);
+std::ostream &operator<<(std::ostream &stream, AForm const &form);
 
 #endif
