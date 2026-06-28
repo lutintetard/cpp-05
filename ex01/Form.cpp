@@ -19,7 +19,7 @@ Form &Form::operator=(Form const &other)
 {
 	if (this == &other)
 		return *this;
-	this->_signed = other.signed;
+	this->_signed = other.getSign();
 	return *this;
 }
 
@@ -37,12 +37,12 @@ bool	Form::getStatus()
 	return (_signed);
 }
 
-int	const	Form::getSign()
+int	Form::getSign()
 {
 	return (_min_to_sign);
 }
 
-int const	Form::getExec()
+int	Form::getExec()
 {
 	return (_min_to_exec);
 }
@@ -50,11 +50,11 @@ int const	Form::getExec()
 void	beSigned(Bureaucrat const &other)
 {
 	if (other.getGrade() > this->_min_to_sign)
-		throw GradeTooLowException;
+		throw GradeTooLowException();
 	this->_signed = true;
 }
 
-std::ostream	&operator<<(std::ostream stream, Form const &form)
+std::ostream	&operator<<(std::ostream &stream, Form const &form)
 {
 	stream << "form : ";
 	stream << form.getName();
@@ -62,7 +62,7 @@ std::ostream	&operator<<(std::ostream stream, Form const &form)
 	stream << form.getStatus();
 	stream << " min level to sign: ";
 	stream << form.getSign();
-	stream << " min level to exec: "
+	stream << " min level to exec: ";
 	stream << form.getExec();
 	return (stream);
 }

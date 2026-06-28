@@ -1,43 +1,66 @@
+#include <iostream>
+#include <exception>
 #include "Bureaucrat.hpp"
+#include "Form.hpp"
 
-int	main(void)
-{
-	Bureaucrat *save_bro_1 = NULL;
-	Bureaucrat *save_bro_2 = NULL;
-	Bureaucrat *save_bro_3 = NULL;
-	Bureaucrat *save_bro_4 = NULL;
-	Bureaucrat *save_bro_5 = NULL;
+int main() {
+    std::cout << "=== TEST 1 : Création de formulaires valides et invalides ===" << std::endl;
+    try {
+        Form f1("Contrat de travail", 50, 25);
+        std::cout << f1 << std::endl;
+    } catch (std::exception &e) {
+        std::cerr << "Exception attrapée : " << e.what() << std::endl;
+    }
 
-	try
-	{
-		save_bro_1 = new Bureaucrat("john", 55);
-		save_bro_2 = new Bureaucrat("clara", 1);
-		save_bro_3 = new Bureaucrat("jean", 150);
-		save_bro_4 = new Bureaucrat("alice", -99);
-		save_bro_5 = new Bureaucrat("samy", 153);
-	}
-	catch (std::exception &e)
-	{
-		std::cout << "Error: " << e.what() << std::endl;
-	}
-	try
-	{
-		save_bro_1->increase_clearence();
-		save_bro_3->decrease_clearence();
-		save_bro_2->increase_clearence();
-	}
-	catch (std::exception &code)
-	{
-		std::cout << code.what() << std::endl;
-	}
-	std::cout << *save_bro_1 << std::endl;
-	std::cout << *save_bro_2 << std::endl;
-	std::cout << *save_bro_3 << std::endl;
-	std::cout << "end of program" << std::endl;
-	(void) save_bro_4;
-	(void) save_bro_5;
-	delete (save_bro_1);
-	delete (save_bro_2);
-	delete (save_bro_3);
-	return (0);
+    try {
+        std::cout << "\nTentative de création d'un formulaire avec un grade trop haut (0) :" << std::endl;
+        Form f_high("Top Secret", 0, 50);
+    } catch (std::exception &e) {
+        std::cerr << "Exception attrapée : " << e.what() << std::endl;
+    }
+
+    try {
+        std::cout << "\nTentative de création d'un formulaire avec un grade trop bas (151) :" << std::endl;
+        Form f_low("Formulaire inutile", 150, 151);
+    } catch (std::exception &e) {
+        std::cerr << "Exception attrapée : " << e.what() << std::endl;
+    }
+
+    std::cout << "\n--------------------------------------------------" << std::endl;
+    std::cout << "=== TEST 2 : Signature réussie ===" << std::endl;
+    try {
+        Bureaucrat boss("Hermes", 10);
+        Form taxForm("Feuille d'impôts", 45, 30);
+
+        std::cout << boss << std::endl;
+        std::cout << taxForm << std::endl;
+
+        // Le bureaucrat tente de signer (grade 10 >= grade requis 45)
+        boss.signForm(taxForm);
+
+        std::cout << "\nÉtat du formulaire après tentative :" << std::endl;
+        std::cout << taxForm << std::endl;
+    } catch (std::exception &e) {
+        std::cerr << "Exception inattendue : " << e.what() << std::endl;
+    }
+
+    std::cout << "\n--------------------------------------------------" << std::endl;
+    std::cout << "=== TEST 3 : Échec de signature (Grade trop bas) ===" << std::endl;
+    try {
+        Bureaucrat intern("Stagiaire", 140);
+        Form NDA("Accord de Confidentialité", 20, 10);
+
+        std::cout << intern << std::endl;
+        std::cout << NDA << std::endl;
+
+        // Le stagiaire tente de signer (grade 140 < grade requis 20)
+        intern.signForm(NDA);
+
+        std::cout << "\nÉtat du formulaire après tentative :" << std::endl;
+        std::cout << NDA << std::endl;
+    } catch (std::exception &e) {
+        std::cerr << "Exception inattendue : " << e.what() << std::endl;
+    }
+
+    return 0;
 }

@@ -6,6 +6,8 @@
 # include <ostream>
 # include "Bureaucrat.hpp"
 
+class Bureaucrat;
+
 class Form
 {
 private:
@@ -20,8 +22,8 @@ public:
 	~Form(void);
 	std::string const &getName();
 	bool	getStatus();
-	int	const	getSign();
-	int const	getExec();
+	int	getSign();
+	int	getExec();
 	void	beSigned(Bureaucrat const &other);
 	class GradeTooHighException : public std::exception
 	{
@@ -41,6 +43,6 @@ public:
 	};
 };
 
-std::ostream &operator<<(std::ostream stream, Form const &form);
+std::ostream &operator<<(std::ostream &stream, Form const &form);
 
 #endif
