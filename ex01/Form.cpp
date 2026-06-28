@@ -1,0 +1,68 @@
+#include "Form.hpp"
+
+Form::Form(std::string const &name, int const sign, int const exec):
+_name(name), _min_to_sign(sign), _min_to_exec(exec)
+{
+	if (sign < 1)
+		throw (GradeTooHighException());
+	if (sign > 150)
+		throw (GradeTooLowException());
+	this->_signed = false;
+}
+
+Form::Form(Form const &other) : Form(other._name, other._min_to_sign, other._min_to_exec) 
+{
+	this->_signed = false;	
+}
+
+Form &Form::operator=(Form const &other)
+{
+	if (this == &other)
+		return *this;
+	this->_signed = other.signed;
+	return *this;
+}
+
+Form::~Form(void)
+{
+}
+
+std::string const &Form::getName()
+{
+	return (_name);
+}
+
+bool	Form::getStatus()
+{
+	return (_signed);
+}
+
+int	const	Form::getSign()
+{
+	return (_min_to_sign);
+}
+
+int const	Form::getExec()
+{
+	return (_min_to_exec);
+}
+
+void	beSigned(Bureaucrat const &other)
+{
+	if (other.getGrade() > this->_min_to_sign)
+		throw GradeTooLowException;
+	this->_signed = true;
+}
+
+std::ostream	&operator<<(std::ostream stream, Form const &form)
+{
+	stream << "form : ";
+	stream << form.getName();
+	stream << " signed status: ";
+	stream << form.getStatus();
+	stream << " min level to sign: ";
+	stream << form.getSign();
+	stream << " min level to exec: "
+	stream << form.getExec();
+	return (stream);
+}
