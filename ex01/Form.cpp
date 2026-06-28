@@ -10,7 +10,8 @@ _name(name), _min_to_sign(sign), _min_to_exec(exec)
 	this->_signed = false;
 }
 
-Form::Form(Form const &other) : Form(other._name, other._min_to_sign, other._min_to_exec) 
+Form::Form(Form const &other) : _name(other._name), 
+_min_to_sign(other._min_to_sign), _min_to_exec(other._min_to_exec)
 {
 	this->_signed = false;	
 }
@@ -19,7 +20,7 @@ Form &Form::operator=(Form const &other)
 {
 	if (this == &other)
 		return *this;
-	this->_signed = other.getSign();
+	this->_signed = other.getStatus();
 	return *this;
 }
 
@@ -27,27 +28,27 @@ Form::~Form(void)
 {
 }
 
-std::string const &Form::getName()
+std::string const &Form::getName() const
 {
 	return (_name);
 }
 
-bool	Form::getStatus()
+bool	Form::getStatus() const
 {
 	return (_signed);
 }
 
-int	Form::getSign()
+int	Form::getSign() const
 {
 	return (_min_to_sign);
 }
 
-int	Form::getExec()
+int	Form::getExec() const
 {
 	return (_min_to_exec);
 }
 
-void	beSigned(Bureaucrat const &other)
+void	Form::beSigned(Bureaucrat const &other)
 {
 	if (other.getGrade() > this->_min_to_sign)
 		throw GradeTooLowException();
