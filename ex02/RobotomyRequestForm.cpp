@@ -1,0 +1,49 @@
+#include "RobotomyRequestForm.hpp"
+
+RobotomyRequestForm::RobotomyRequestForm(std::string const target) : 
+AForm::AForm("RobotomyRequestForm", 25, 5), target(target)
+{
+}
+
+RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &other) : 
+AForm(other.getName(), other.getSign(), other.getExec()), target(target)
+{
+	if (other.getStatus())
+		this->setStatus(true);
+	else
+		this->setStatus(false);	
+}
+
+RobotomyRequestForm &RobotomyRequestForm::operator=(RobotomyRequestForm const &other)
+{
+	if (this == &other)
+		return (*this);
+	if (other.getStatus())
+		this->setStatus(true);
+	else
+		this->setStatus(false);	
+	return (*this);
+}
+
+RobotomyRequestForm::~RobotomyRequestForm()
+{
+
+}
+
+void	RobotomyRequestForm::execute(Bureaucrat const &executor) const
+{
+	try
+	{
+		this->execFile(executor);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << "The Bureaucrat could not execute this form because: ";
+		std::cout << e.what() << std::endl;
+	}
+	std::time_t random = std::time(NULL);
+	if (random % 2 == 0)
+		std::cout << "Robotomy on " << this->target << " saddly failed :)" << std::endl;
+	else
+		std::cout << "Robotomy on " << this->target << " saddly succeeded :(" << std::endl;
+}
