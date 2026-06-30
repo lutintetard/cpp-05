@@ -21,7 +21,7 @@ int main() {
 
     try {
         std::cout << "\nTentative de création d'un formulaire avec un grade trop bas (151) :" << std::endl;
-        Form f_low("Formulaire inutile", 150, 151);
+        Form f_low("Formulaire inutile", 151, 150);
     } catch (std::exception &e) {
         std::cerr << "Exception attrapée : " << e.what() << std::endl;
     }

@@ -11,12 +11,12 @@ class Bureaucrat;
 class Form
 {
 private:
-	std::string const &_name;
+	std::string const _name;
 	bool	_signed;
 	int const	_min_to_sign;
 	int const	_min_to_exec;
 public:
-	Form(std::string const &name, int const sign, int const exec);
+	Form(std::string const name, int const sign, int const exec);
 	Form(Form const &other);
 	Form &operator=(Form const &other);	
 	~Form(void);

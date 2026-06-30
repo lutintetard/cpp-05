@@ -4,7 +4,7 @@ CC=c++
 FLAGS=-Wall -Wextra -Werror -std=c++98 -g
 CPP=Bureaucrat.cpp main.cpp Form.cpp
 CO=$(CPP:.cpp=.o)
-PROG=bur
+PROG=mag
 
 all: $(PROG)
 

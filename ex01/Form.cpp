@@ -1,6 +1,6 @@
 #include "Form.hpp"
 
-Form::Form(std::string const &name, int const sign, int const exec):
+Form::Form(std::string const name, int const sign, int const exec):
 _name(name), _min_to_sign(sign), _min_to_exec(exec)
 {
 	if (sign < 1)
@@ -30,7 +30,7 @@ Form::~Form(void)
 
 std::string const &Form::getName() const
 {
-	return (_name);
+	return (this->_name);
 }
 
 bool	Form::getStatus() const
