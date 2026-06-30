@@ -44,12 +44,20 @@ public:
 			return "the grade level is too low";
 		}
 	};
-	class AlreadySigned
+	class AlreadySigned : public std::exception
 	{
 	public:
 		virtual const char *what() const throw()
 		{
 			return "this form has already been signed";
+		}
+	};
+	class NotSigned : public std::exception
+	{
+	public:
+		virtual const char *what() const throw()
+		{
+			return "this form has not been signed";
 		}
 	};
 };

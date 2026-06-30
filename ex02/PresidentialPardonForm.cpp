@@ -6,7 +6,7 @@ AForm::AForm("PresidentialPardonForm", 25, 5), target(target)
 }
 
 PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &other) : 
-AForm(other.getName(), other.getSign(), other.getExec()), target(target)
+AForm::AForm(other.getName(), other.getSign(), other.getExec()), target(other.target)
 {
 	if (other.getStatus())
 		this->setStatus(true);

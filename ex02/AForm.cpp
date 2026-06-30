@@ -13,7 +13,7 @@ _name(name), _min_to_sign(sign), _min_to_exec(exec)
 AForm::AForm(AForm const &other) : _name(other._name), 
 _min_to_sign(other._min_to_sign), _min_to_exec(other._min_to_exec)
 {
-	this->_signed = false;	
+	this->_signed = false;
 }
 
 AForm &AForm::operator=(AForm const &other)
@@ -66,6 +66,8 @@ void	AForm::execFile(Bureaucrat const &other) const
 {
 	if (other.getGrade() > this->_min_to_sign)
 		throw GradeTooLowException();
+	if (this->getStatus() == false)
+		throw NotSigned();
 }
 
 std::ostream	&operator<<(std::ostream &stream, AForm const &form)

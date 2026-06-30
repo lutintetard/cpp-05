@@ -48,6 +48,7 @@ void	Bureaucrat::signForm(AForm &form)
 	{
 		std::cout << name << " couldn't sign " << form.getName() << " because ";
 		std::cout << e.what() << "." << std::endl;
+		return ;
 	}
 	std::cout << name << " signed " << form.getName() << std::endl;
 }
@@ -64,6 +65,20 @@ void	Bureaucrat::decrease_clearence()
 	if (grade == 150)
 		throw (GradeTooLowException()); 
 	grade++;
+}
+
+void	Bureaucrat::executeForm(AForm const &form) const
+{
+	try
+	{
+		form.execFile(*this);
+	}
+	catch (std::exception &e)
+	{
+		std::cout << "Error: " << e.what() << std::endl;	
+	}
+	form.execute(*this);
+	std::cout << this->getName() << " has succesfully executed the form" << std::endl;
 }
 
 std::ostream &operator<<(std::ostream &stream, Bureaucrat const &person)

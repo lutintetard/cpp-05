@@ -6,6 +6,7 @@
 #include <iostream>
 
 int main() {
+    std::srand(std::time(NULL));
     // Création de quelques bureaucrates
     Bureaucrat boss("Zaphod", 1);
     Bureaucrat intern("Bob", 150);

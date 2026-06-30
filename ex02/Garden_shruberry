@@ -1,0 +1,24 @@
+.
+├── AForm.cpp
+├── AForm.hpp
+├── AForm.o
+├── Bureaucrat.cpp
+├── Bureaucrat.hpp
+├── Bureaucrat.o
+├── Garden_shruberry
+├── .gitignore
+├── mag
+├── main.cpp
+├── main.o
+├── Makefile
+├── PresidentialPardonForm.cpp
+├── PresidentialPardonForm.hpp
+├── PresidentialPardonForm.o
+├── RobotomyRequestForm.cpp
+├── RobotomyRequestForm.hpp
+├── RobotomyRequestForm.o
+├── ShrubberyCreationForm.cpp
+├── ShrubberyCreationForm.hpp
+└── ShrubberyCreationForm.o
+
+1 directory, 21 files

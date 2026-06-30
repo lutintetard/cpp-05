@@ -25,6 +25,7 @@ public:
 	void	decrease_clearence();
 	void	signForm(AForm &form);
 	void	setStatus(bool val);
+	void	executeForm(AForm const &form) const;
 	class GradeTooHighException : public std::exception
 	{
 		virtual const char * what() const throw()

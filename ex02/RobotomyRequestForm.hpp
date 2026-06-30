@@ -4,6 +4,7 @@
 # include "AForm.hpp"
 # include "Bureaucrat.hpp"
 # include <ctime>
+# include <cstdlib>
 
 class Bureaucrat;
 

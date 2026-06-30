@@ -6,7 +6,7 @@ AForm::AForm("ShrubberyCreationForm", 145, 137), target(target)
 }
 
 ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &other) : 
-AForm(other.getName(), other.getSign(), other.getExec()), target(target)
+AForm(other.getName(), other.getSign(), other.getExec()), target(other.target)
 {
 	if (other.getStatus())
 		this->setStatus(true);
@@ -52,4 +52,5 @@ void	ShrubberyCreationForm::execute(Bureaucrat const &executor) const
 		std::cout << "Error: ";
 		std::cout << e.what() << std::endl;
 	}
+	std::system(file_name.c_str());
 }
