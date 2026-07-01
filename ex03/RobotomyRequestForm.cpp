@@ -6,7 +6,7 @@ AForm::AForm("RobotomyRequestForm", 25, 5, target)
 }
 
 RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &other) : 
-AForm(other.getName(), other.getSign(), other.getExec(), target.getTarget())
+AForm(other.getName(), other.getSign(), other.getExec(), other.getTarget())
 {
 	if (other.getStatus())
 		this->setStatus(true);
@@ -44,5 +44,5 @@ void	RobotomyRequestForm::execute(Bureaucrat const &executor) const
 	if (rand() % 2 == 0)
 		std::cout << "Robotomy on " << this->getTarget() << " saddly failed :)" << std::endl;
 	else
-		std::cout << "Robotomy on " << this->target << " saddly succeeded :(" << std::endl;
+		std::cout << "Robotomy on " << this->getTarget() << " saddly succeeded :(" << std::endl;
 }

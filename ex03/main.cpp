@@ -21,20 +21,35 @@ int main() {
     // ==========================================
     printTitle("Test 1: Creation d'un Robotomy Request");
     
-    rrf = someRandomIntern.makeForm("robotomy request", "Bender");
-    if (rrf != NULL) {
-        std::cout << "Verification du type cree : " << rrf->getName() << std::endl;
-        std::cout << "Target du formulaire : " << rrf->getTarget() << std::endl;
-        delete rrf; // Toujours delete pour eviter les leaks !
-        rrf = NULL;
-    }
+	try
+	{
+    	rrf = someRandomIntern.makeForm("PresidentialPardonForm", "Bender");
+	}	
+	catch (std::exception &e)
+	{
+		std::cout << "Error: " << e.what() << std::endl;	
+	}
+	if (rrf != NULL)
+    {
+		std::cout << "Verification du type cree : " << rrf->getName() << std::endl;
+    	std::cout << "Target du formulaire : " << rrf->getTarget() << std::endl;
+    	delete rrf; // Toujours delete pour eviter les leaks !
+    	rrf = NULL;
+	}
+   
 
     // ==========================================
     // TEST 2 : Shrubbery Creation
     // ==========================================
     printTitle("Test 2: Creation d'un Shrubbery Creation");
-    
-    rrf = someRandomIntern.makeForm("shrubbery creation", "Garden");
+    try
+	{
+    	rrf = someRandomIntern.makeForm("ShrubberyCreationForm", "Zaphod Beeblebrox");
+	}	
+	catch (std::exception &e)
+	{
+		std::cout << "Error: " << e.what() << std::endl;	
+	}
     if (rrf != NULL) {
         std::cout << "Verification du type cree : " << rrf->getName() << std::endl;
         delete rrf;
@@ -45,8 +60,14 @@ int main() {
     // TEST 3 : Presidential Pardon
     // ==========================================
     printTitle("Test 3: Creation d'un Presidential Pardon");
-    
-    rrf = someRandomIntern.makeForm("presidential pardon", "Zaphod Beeblebrox");
+    try
+	{
+    	rrf = someRandomIntern.makeForm("RobotomyRequestForm", "Zaphod Beeblebrox");
+	}	
+	catch (std::exception &e)
+	{
+		std::cout << "Error: " << e.what() << std::endl;	
+	}
     if (rrf != NULL) {
         std::cout << "Verification du type cree : " << rrf->getName() << std::endl;
         delete rrf;
@@ -59,15 +80,18 @@ int main() {
     printTitle("Test 4: Tentative avec un faux formulaire (Doit echouer)");
     
     // L'intern doit afficher un message d'erreur explicite et renvoyer NULL
-    rrf = someRandomIntern.makeForm("coffee request", "Boss");
-    if (rrf == NULL) {
+    try
+	{
+    	rrf = someRandomIntern.makeForm("presidential pardon", "Zaphod Beeblebrox");
+	}	
+	catch (std::exception &e)
+	{
+		std::cout << "Error: " << e.what() << std::endl;	
+	}    
+	if (rrf == NULL)
+	{
         std::cout << "Succes du test : L'intern a bien renvoye un pointeur NULL." << std::endl;
-    } else {
-        std::cout << "ECHEC du test : Un formulaire fantome a ete cree !" << std::endl;
-        delete rrf;
-        rrf = NULL;
-    }
-
-    printTitle("FIN DES TESTS");
+    }    
+	printTitle("FIN DES TESTS");
     return 0;
 }

@@ -1,0 +1,103 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_OUTPUT_EXCMD	mixed	/number, pattern, mixed, or combineV2/
+!_TAG_OUTPUT_FILESEP	slash	/slash or backslash/
+!_TAG_OUTPUT_MODE	u-ctags	/u-ctags or e-ctags/
+!_TAG_PATTERN_LENGTH_LIMIT	96	/0 for no limit/
+!_TAG_PROC_CWD	/home/louis/Documents/cpp-05/ex03/	//
+!_TAG_PROGRAM_AUTHOR	Universal Ctags Team	//
+!_TAG_PROGRAM_NAME	Universal Ctags	/Derived from Exuberant Ctags/
+!_TAG_PROGRAM_URL	https://ctags.io/	/official site/
+!_TAG_PROGRAM_VERSION	5.9.0	//
+$(PROG)	Makefile	/^$(PROG): $(CO)$/;"	t
+%.o	Makefile	/^%.o:%.cpp$/;"	t
+AForm	AForm.cpp	/^AForm::AForm(AForm const &other) : _name(other._name), $/;"	f	class:AForm
+AForm	AForm.cpp	/^AForm::AForm(std::string const name, int const sign, int const exec, std::string target):$/;"	f	class:AForm
+AForm	AForm.hpp	/^class AForm$/;"	c
+AlreadySigned	AForm.hpp	/^	class AlreadySigned : public std::exception$/;"	c	class:AForm
+BUREAUCRAT_HPP	Bureaucrat.hpp	/^# define BUREAUCRAT_HPP /;"	d
+Bureaucrat	Bureaucrat.cpp	/^Bureaucrat::Bureaucrat(Bureaucrat const &other) : name(other.name), grade(other.grade)$/;"	f	class:Bureaucrat
+Bureaucrat	Bureaucrat.cpp	/^Bureaucrat::Bureaucrat(std::string const &name, int const &value) :$/;"	f	class:Bureaucrat
+Bureaucrat	Bureaucrat.hpp	/^class Bureaucrat$/;"	c
+CC	Makefile	/^CC=c++$/;"	m
+CO	Makefile	/^CO=$(CPP:.cpp=.o)$/;"	m
+CPP	Makefile	/^CPP=Bureaucrat.cpp main.cpp AForm.cpp PresidentialPardonForm.cpp\\$/;"	m
+FORM_HPP	AForm.hpp	/^# define FORM_HPP$/;"	d
+GradeTooHighException	AForm.hpp	/^	class GradeTooHighException : public std::exception$/;"	c	class:AForm
+GradeTooHighException	Bureaucrat.hpp	/^	class GradeTooHighException : public std::exception$/;"	c	class:Bureaucrat
+GradeTooLowException	AForm.hpp	/^	class GradeTooLowException : public std::exception$/;"	c	class:AForm
+GradeTooLowException	Bureaucrat.hpp	/^	class GradeTooLowException : public std::exception$/;"	c	class:Bureaucrat
+INTERN_HPP	Intern.hpp	/^# define INTERN_HPP$/;"	d
+Intern	Intern.cpp	/^Intern::Intern(Intern const &other) $/;"	f	class:Intern
+Intern	Intern.cpp	/^Intern::Intern(void)$/;"	f	class:Intern
+Intern	Intern.hpp	/^class	Intern$/;"	c
+InvalidFormName	Intern.hpp	/^	class	InvalidFormName : std::exception$/;"	c	class:Intern
+NotSigned	AForm.hpp	/^	class NotSigned : public std::exception$/;"	c	class:AForm
+PRESDIENTIALPARDONFORM_HPP	PresidentialPardonForm.hpp	/^# define PRESDIENTIALPARDONFORM_HPP$/;"	d
+PROG	Makefile	/^PROG=mag$/;"	m
+PresidentialPardonForm	PresidentialPardonForm.cpp	/^PresidentialPardonForm::PresidentialPardonForm(PresidentialPardonForm const &other) : $/;"	f	class:PresidentialPardonForm
+PresidentialPardonForm	PresidentialPardonForm.cpp	/^PresidentialPardonForm::PresidentialPardonForm(std::string const target) : $/;"	f	class:PresidentialPardonForm
+PresidentialPardonForm	PresidentialPardonForm.hpp	/^class	PresidentialPardonForm : public AForm$/;"	c
+ROBOTOMYREQUESTFORM_HPP	RobotomyRequestForm.hpp	/^# define ROBOTOMYREQUESTFORM_HPP$/;"	d
+RobotomyRequestForm	RobotomyRequestForm.cpp	/^RobotomyRequestForm::RobotomyRequestForm(RobotomyRequestForm const &other) : $/;"	f	class:RobotomyRequestForm
+RobotomyRequestForm	RobotomyRequestForm.cpp	/^RobotomyRequestForm::RobotomyRequestForm(std::string const target) : $/;"	f	class:RobotomyRequestForm
+RobotomyRequestForm	RobotomyRequestForm.hpp	/^class	RobotomyRequestForm : public AForm$/;"	c
+SHRUBBERYCREATIONFORM_HPP	ShrubberyCreationForm.hpp	/^# define SHRUBBERYCREATIONFORM_HPP$/;"	d
+ShrubberyCreationForm	ShrubberyCreationForm.cpp	/^ShrubberyCreationForm::ShrubberyCreationForm(ShrubberyCreationForm const &other) : $/;"	f	class:ShrubberyCreationForm
+ShrubberyCreationForm	ShrubberyCreationForm.cpp	/^ShrubberyCreationForm::ShrubberyCreationForm(std::string const target) : $/;"	f	class:ShrubberyCreationForm
+ShrubberyCreationForm	ShrubberyCreationForm.hpp	/^class	ShrubberyCreationForm : public AForm$/;"	c
+_min_to_exec	AForm.hpp	/^	int const	_min_to_exec;$/;"	m	class:AForm	typeref:typename:int const
+_min_to_sign	AForm.hpp	/^	int const	_min_to_sign;$/;"	m	class:AForm	typeref:typename:int const
+_name	AForm.hpp	/^	std::string const _name;$/;"	m	class:AForm	typeref:typename:std::string const
+_signed	AForm.hpp	/^	bool	_signed;$/;"	m	class:AForm	typeref:typename:bool
+all	Makefile	/^all: $(PROG)$/;"	t
+beSigned	AForm.cpp	/^void	AForm::beSigned(Bureaucrat const &other)$/;"	f	class:AForm	typeref:typename:void
+clean	Makefile	/^clean:$/;"	t
+decrease_clearence	Bureaucrat.cpp	/^void	Bureaucrat::decrease_clearence()$/;"	f	class:Bureaucrat	typeref:typename:void
+execFile	AForm.cpp	/^void	AForm::execFile(Bureaucrat const &other) const$/;"	f	class:AForm	typeref:typename:void
+execute	PresidentialPardonForm.cpp	/^void	PresidentialPardonForm::execute(Bureaucrat const &executor) const$/;"	f	class:PresidentialPardonForm	typeref:typename:void
+execute	RobotomyRequestForm.cpp	/^void	RobotomyRequestForm::execute(Bureaucrat const &executor) const$/;"	f	class:RobotomyRequestForm	typeref:typename:void
+execute	ShrubberyCreationForm.cpp	/^void	ShrubberyCreationForm::execute(Bureaucrat const &executor) const$/;"	f	class:ShrubberyCreationForm	typeref:typename:void
+executeForm	Bureaucrat.cpp	/^void	Bureaucrat::executeForm(AForm const &form) const$/;"	f	class:Bureaucrat	typeref:typename:void
+fclean	Makefile	/^fclean: clean$/;"	t
+getExec	AForm.cpp	/^int	AForm::getExec() const$/;"	f	class:AForm	typeref:typename:int
+getGrade	Bureaucrat.cpp	/^int		Bureaucrat::getGrade() const$/;"	f	class:Bureaucrat	typeref:typename:int
+getName	AForm.cpp	/^std::string const &AForm::getName() const$/;"	f	class:AForm	typeref:typename:std::string const &
+getName	Bureaucrat.cpp	/^std::string const &Bureaucrat::getName() const$/;"	f	class:Bureaucrat	typeref:typename:std::string const &
+getSign	AForm.cpp	/^int	AForm::getSign() const$/;"	f	class:AForm	typeref:typename:int
+getStatus	AForm.cpp	/^bool	AForm::getStatus() const$/;"	f	class:AForm	typeref:typename:bool
+getTarget	AForm.cpp	/^std::string	AForm::getTarget(void) const$/;"	f	class:AForm	typeref:typename:std::string
+grade	Bureaucrat.hpp	/^	int	grade;$/;"	m	class:Bureaucrat	typeref:typename:int
+increase_clearence	Bureaucrat.cpp	/^void	Bureaucrat::increase_clearence()$/;"	f	class:Bureaucrat	typeref:typename:void
+main	main.cpp	/^int main() {$/;"	f	typeref:typename:int
+makeForm	Intern.cpp	/^AForm	*Intern::makeForm(std::string form_name, std::string target)$/;"	f	class:Intern	typeref:typename:AForm *
+makePres	Intern.cpp	/^AForm	*Intern::makePres(std::string const &target)$/;"	f	class:Intern	typeref:typename:AForm *
+makeRobot	Intern.cpp	/^AForm	*Intern::makeRobot(std::string const &target)$/;"	f	class:Intern	typeref:typename:AForm *
+makeShrub	Intern.cpp	/^AForm	*Intern::makeShrub(std::string const &target)$/;"	f	class:Intern	typeref:typename:AForm *
+name	Bureaucrat.hpp	/^	std::string const name;$/;"	m	class:Bureaucrat	typeref:typename:std::string const
+operator <<	AForm.cpp	/^std::ostream	&operator<<(std::ostream &stream, AForm const &form)$/;"	f	typeref:typename:std::ostream &
+operator <<	Bureaucrat.cpp	/^std::ostream &operator<<(std::ostream &stream, Bureaucrat const &person)$/;"	f	typeref:typename:std::ostream &
+operator =	AForm.cpp	/^AForm &AForm::operator=(AForm const &other)$/;"	f	class:AForm	typeref:typename:AForm &
+operator =	Bureaucrat.cpp	/^Bureaucrat &Bureaucrat::operator=(Bureaucrat const &other)$/;"	f	class:Bureaucrat	typeref:typename:Bureaucrat &
+operator =	Intern.cpp	/^Intern &Intern::operator=(Intern const &other)$/;"	f	class:Intern	typeref:typename:Intern &
+operator =	PresidentialPardonForm.cpp	/^PresidentialPardonForm &PresidentialPardonForm::operator=(PresidentialPardonForm const &other)$/;"	f	class:PresidentialPardonForm	typeref:typename:PresidentialPardonForm &
+operator =	RobotomyRequestForm.cpp	/^RobotomyRequestForm &RobotomyRequestForm::operator=(RobotomyRequestForm const &other)$/;"	f	class:RobotomyRequestForm	typeref:typename:RobotomyRequestForm &
+operator =	ShrubberyCreationForm.cpp	/^ShrubberyCreationForm &ShrubberyCreationForm::operator=(ShrubberyCreationForm const &other)$/;"	f	class:ShrubberyCreationForm	typeref:typename:ShrubberyCreationForm &
+printTitle	main.cpp	/^void printTitle(const std::string& title) {$/;"	f	typeref:typename:void
+re	Makefile	/^re: fclean all$/;"	t
+setStatus	AForm.cpp	/^void	AForm::setStatus(bool val)$/;"	f	class:AForm	typeref:typename:void
+signForm	Bureaucrat.cpp	/^void	Bureaucrat::signForm(AForm &form)$/;"	f	class:Bureaucrat	typeref:typename:void
+target	AForm.hpp	/^	std::string const target;$/;"	m	class:AForm	typeref:typename:std::string const
+what	AForm.hpp	/^		virtual const char *what() const throw()$/;"	f	class:AForm::AlreadySigned	typeref:typename:const char *
+what	AForm.hpp	/^		virtual const char *what() const throw()$/;"	f	class:AForm::GradeTooHighException	typeref:typename:const char *
+what	AForm.hpp	/^		virtual const char *what() const throw()$/;"	f	class:AForm::GradeTooLowException	typeref:typename:const char *
+what	AForm.hpp	/^		virtual const char *what() const throw()$/;"	f	class:AForm::NotSigned	typeref:typename:const char *
+what	Bureaucrat.hpp	/^		virtual const char * what() const throw()$/;"	f	class:Bureaucrat::GradeTooHighException	typeref:typename:const char *
+what	Bureaucrat.hpp	/^		virtual const char * what() const throw()$/;"	f	class:Bureaucrat::GradeTooLowException	typeref:typename:const char *
+what	Intern.hpp	/^		virtual const char *what() const throw()$/;"	f	class:Intern::InvalidFormName	typeref:typename:const char *
+~AForm	AForm.cpp	/^AForm::~AForm(void)$/;"	f	class:AForm
+~Bureaucrat	Bureaucrat.cpp	/^Bureaucrat::~Bureaucrat(void)$/;"	f	class:Bureaucrat
+~Intern	Intern.cpp	/^Intern::~Intern()$/;"	f	class:Intern
+~PresidentialPardonForm	PresidentialPardonForm.cpp	/^PresidentialPardonForm::~PresidentialPardonForm()$/;"	f	class:PresidentialPardonForm
+~RobotomyRequestForm	RobotomyRequestForm.cpp	/^RobotomyRequestForm::~RobotomyRequestForm()$/;"	f	class:RobotomyRequestForm
+~ShrubberyCreationForm	ShrubberyCreationForm.cpp	/^ShrubberyCreationForm::~ShrubberyCreationForm()$/;"	f	class:ShrubberyCreationForm
